@@ -1,0 +1,21 @@
+{% load static %}
+{% include 'shop/layouts/main.html'  %}
+
+
+{% block title %}
+welcome | page
+{% endblock title %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% block content %}
+
+    <div class="col-md-7" style="margin-top:100px;margin-left:700px;">
+    <img src ="{% static 'images/tik4.jpeg' %}" style="height: 100px;width:100px;" ><br>
+    
+</div>
+
+<div class="container">
+    <h2 style="margin-left:100px;margin-top: 20px;" >Thank You! Your Order was placed Successfully, Keep shopping continue with us!</h2>
+    <img src ="{% static 'images/done.jpg' %}" style="height: 300px;width:300px;margin-left:525px;margin-top:50px;" ><br>
+</div>
+
+{% endblock content %}

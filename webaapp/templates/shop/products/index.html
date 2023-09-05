@@ -1,0 +1,43 @@
+{% include 'shop/layouts/main.html'  %}
+
+{% block title %}
+welcome | page
+{% endblock title %}
+
+{% block content %}
+<section class="bg-light py-4 my-5" style="min-height:600px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">{{category_name}} Products</h4>
+                <hr style="border-color:#b8bfc2;">
+                
+            </div>
+            {% for item in products %}
+                
+                <div class ="col-md-4 col-lg-3" >
+                    <div class="card  my-3" >
+                        <div class="card shadow">
+                            <a href="{% url 'product_details' category_name item.name %}">
+                        <img src="{{item.Product_image.url}}" style = "height:130px;width:130px;margin-left: 80px;margin-top:20px;" class="card-image-top" alt="Categories">
+                        
+                            <hr>
+                        <div class="card-body">
+                            <h5 class="card-title text-primary">{{item.name}}</h5>
+                            <p class="card-text">
+                               <span class="float-start old_price" style =font-weight:bold;color:red;><s>Rs.{{item.original_price | stringformat:'d'}}</s></span> 
+                               <span class="float-end new_price" style =font-weight:bold;color:white;background-color:green;border-radius:5px;padding:2px;>Rs.{{item.selling_price | stringformat:'d'}}</span>
+
+                            </p>
+                            
+                        </div>
+                    </a>
+                    </div>
+                </div>
+            </div>
+                {% endfor %}
+        </div>
+    </div>
+</section>
+{% include 'shop/inc/footer.html' %}
+{% endblock content %}

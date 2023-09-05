@@ -1,0 +1,109 @@
+{% extends 'shop/layouts/main.html' %}
+{% load static %}
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link ref="stylesheet" href="{% static 'css/style.css' %}">
+{% block content %}
+<section class="bg-light py-4 my-5" style="min-height:600px;">
+<div class="container my-3">
+    <form action="#" method="POST">
+        {% csrf_token %}
+<div class="row">
+    <div class="col-md-7">
+        <div class="card shadow checkoutform">
+            <div class="card-body">
+                <h6>Basic Details</h6>
+                <hr>
+             
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>First Name</label>
+                        <input type="text" required class="form-control" name="fname" place holder="Enter First Name">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Last Name</label>
+                        <input type="text" required class="form-control" name="lname" place holder="Enter Last Name">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Email Name</label>
+                        <input type="email" required class="form-control" name="email" place holder="Enter >Email Name">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Phone</label>
+                        <input type="text" required class="form-control" name="phone" place holder="Enter Phone">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Address</label>
+                        <textarea required class="form-control"  place holder="Enter Address" name="address"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label>City</label>
+                        <input type="text" required class="form-control" name="city" place holder="Enter City">
+                    </div>
+                    <div class="col-md-6">
+                        <label>State</label>
+                        <input type="text" required class="form-control" name="state" place holder="Enter State">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Country</label>
+                        <input type="text" required class="form-control" name="country" place holder="Enter Country">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Pin Code</label>
+                        <input type="text" required class="form-control" name="pincode" place holder="Enter Pincode">
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-5">
+        <div class="card shadow">
+            <div class="card-body">
+                <h6>Order Summary</h6>
+                <hr>
+                
+                 <table class="table table-stripeds table-bordereds">
+                    <thead>
+                        <tr>
+                            <th> Product</th>
+                            <th>Name</th>
+                            
+                            <th> Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        
+                          <tr>
+                            <td>
+                                <img src="{{products.Product_image.url}}"  height="50px" xlass="me-2" width="50px">
+                              </td>
+                              <td>  {{ products.name }}</td>
+                                
+                           
+                           
+                            <td> {{ products.selling_price | stringformat:'d' }}</td>
+                          </tr>
+                          
+                    </tbody>
+                 </table>
+                 
+                  <input type="hidden" value ="COD" name="payment_mode">
+                 <div class="mt-3">
+                    
+                    <button type="submit" class="btn btn-success w-100">COD | Place Order</button>
+                    
+                 </div>
+              
+               
+               
+               
+            </div>
+        </div>
+        </div>
+    </div>
+</form>
+</div>
+</section>
+{% endblock content %}
